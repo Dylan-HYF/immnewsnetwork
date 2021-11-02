@@ -28,6 +28,7 @@ if ($ifLike == 1) {
   <?php
   }
 } else {
+  // should use a like field to record dislike as well
   $stmt = $pdo->prepare("DELETE FROM `user-article` WHERE `user-article`.`articleId` = $articleId AND `user-article`.`userId` = $userId");
   if ($stmt->execute()) {
     header("Location: index.php");

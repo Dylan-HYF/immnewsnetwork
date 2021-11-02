@@ -16,6 +16,9 @@ if (!isset($_GET["id"])) {
   if ($row["featured"] == 0) {
     $stmt = $pdo->prepare("UPDATE `article` SET `featured` = 1 WHERE `article`.`id` = $id");
     $stmt->execute();
+    // should just find one featured article 为性能着想
+    $unFeatured = $pdo->prepare("UPDATE `article` SET `featured` = 0 WHERE `article`.`id` <> $id");
+    $unFeatured->execute();
     header('Location: ../index.php');
   } else if ($row["featured"] == 1) {
     $stmt = $pdo->prepare("UPDATE `article` SET `featured` = 0 WHERE `article`.`id` = $id");

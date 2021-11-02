@@ -68,6 +68,7 @@ while ($row = $stmt->fetch()) {
 
     <?php
     }
+    // should use roleId(a new column in the table)
     if ($_SESSION["personId"] == 1) {
     ?>
       <a class="btn" href="content/edit.php?id=<?= $row["id"] ?>">edit</a>

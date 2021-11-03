@@ -11,7 +11,7 @@ store in a column of article table
 */
 include('includes/session-check.php');
 // 要加include，还有加一个管理员身份认证的include
-include('includes/admin-check.php');
+// include('includes/admin-check.php');
 $userId = $_GET["userId"];
 $articleId = $_GET["articleId"];
 $ifLike = $_GET["like"];
